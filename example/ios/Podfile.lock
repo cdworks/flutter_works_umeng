@@ -1,0 +1,38 @@
+PODS:
+  - Flutter (1.0.0)
+  - UMCCommon (2.1.1)
+  - UMCPush (3.2.4):
+    - UMCCommon
+  - UMCSecurityPlugins (1.0.6)
+  - works_umeng (0.0.1):
+    - Flutter
+    - UMCCommon
+    - UMCPush
+    - UMCSecurityPlugins
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - works_umeng (from `.symlinks/plugins/works_umeng/ios`)
+
+SPEC REPOS:
+  trunk:
+    - UMCCommon
+    - UMCPush
+    - UMCSecurityPlugins
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  works_umeng:
+    :path: ".symlinks/plugins/works_umeng/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  works_umeng: 75e160583abf0b60620299e763e3255e4d381ec5
+
+PODFILE CHECKSUM: f4bb9a39468b2bdf5e5b0217aff50bf1e6d301f4
+
+COCOAPODS: 1.8.4
