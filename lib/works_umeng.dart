@@ -27,7 +27,6 @@ class WorksUmeng {
   }
 
   static Future<String> methodHandler (MethodCall call) async {
-
     if(call.method == 'deviceTokenSuccess')
     {
       _deviceToken = null;

@@ -172,6 +172,22 @@ public class WorksUmengPlugin implements FlutterPlugin, MethodCallHandler {
           }
           return super.getNotification(context, uMessage);
         }
+
+        @Override
+        public void dealWithCustomMessage(Context context, final UMessage uMessage) {
+          if (_methodChannel != null) {
+            new Handler(context.getMainLooper()).post(new Runnable() {
+              @Override
+              public void run() {
+                Map<String, Object> message = new HashMap<>();
+                message.put("type", 3);
+                message.put("data", formatMsg(uMessage));
+                _methodChannel.invokeMethod("pushMessage", message);
+              }
+            });
+          }
+          super.dealWithCustomMessage(context, uMessage);
+        }
       });
 
       String appId = applicationInfo.metaData.getString("com.huawei.hms.client.appid");
@@ -271,6 +287,7 @@ public class WorksUmengPlugin implements FlutterPlugin, MethodCallHandler {
         JSONObject jsonObject = new JSONObject(messageString);
 
         Map<String, Object> message = new HashMap<>();
+        message.put("type", 1);
         message.put("data", JSONUtil.unwrap(jsonObject));
         _methodChannel.invokeMethod("pushMessage", message);
 
