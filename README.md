@@ -10,7 +10,7 @@
   dependencies:
     flutter:
       sdk: flutter
-    asset_picker:
+    works_umeng:
     #本地路径
       path: /**/flutter_works_umeng
 #或者git地址
