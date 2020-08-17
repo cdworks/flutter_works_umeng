@@ -37,22 +37,21 @@ ios在plist.info中添加 "UmengKey"字段
 ```dart
 void main() 
 {
-	//初始化
-	WorksUmeng.initChannel();
+  //初始化
+  WorksUmeng.initChannel();
+  
+  //接收推送消息回调
+  WorksUmeng.receivePushListen((pushMessage)
+  {
+     int type = message['type']; // type==1 表示点击推送事件。type==3 表示接收到推送消息
+     if(type == null)
+     	return;
+     Map messageData = message['data']; //data字段表示推送原始数据，根据实际情况解析
+  });
 
-	//接收推送消息回调
-	WorksUmeng.receivePushListen((pushMessage)
-  	{
-  		int type = message['type']; // type==1 表示点击推送事件。type==3 表示接收到推送消息
-    	if(type == null)
-     	 return;
-     	Map messageData = message['data']; //data字段表示推送原始数据，根据实际情况解析
-  	});
+  //device token 回调
 
-
-  	//device token 回调
-
-  	WorksUmeng.receiveRegisterForRemoteNotificationsToken((token)
+  WorksUmeng.receiveRegisterForRemoteNotificationsToken((token)
   {
     print('device token:$token');
   });
